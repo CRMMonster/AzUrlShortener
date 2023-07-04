@@ -6,6 +6,8 @@ namespace Cloud5mins.ShortenerTools.Core.Messages
     {
         public string Vanity { get; set; }
 
+        public string VanityPrefix { get; set; }
+
         public string Url { get; set; }
 
         public string Title { get; set; }
