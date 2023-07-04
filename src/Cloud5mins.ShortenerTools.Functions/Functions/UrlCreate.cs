@@ -95,6 +95,7 @@ namespace Cloud5mins.ShortenerTools.Functions
 
                 string longUrl = input.Url.Trim();
                 string vanity = string.IsNullOrWhiteSpace(input.Vanity) ? "" : input.Vanity.Trim();
+                string vanityPrefix = string.IsNullOrWhiteSpace(input.VanityPrefix) ? "" : input.VanityPrefix.Trim();
                 string title = string.IsNullOrWhiteSpace(input.Title) ? "" : input.Title.Trim();
 
 
@@ -112,7 +113,7 @@ namespace Cloud5mins.ShortenerTools.Functions
                 }
                 else
                 {
-                    newRow = new ShortUrlEntity(longUrl, await Utility.GetValidEndUrl(vanity, stgHelper), title, input.Schedules);
+                    newRow = new ShortUrlEntity(longUrl, await Utility.GetValidEndUrl(vanity, stgHelper, vanityPrefix), title, input.Schedules);
                 }
 
                 await stgHelper.SaveShortUrlEntity(newRow);
